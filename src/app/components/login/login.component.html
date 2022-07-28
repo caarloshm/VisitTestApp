@@ -1,0 +1,46 @@
+<div class="login-register" style="background-image:url(./assets/images/background-login.jpg);">
+    <!-- <div class="login-register"> -->
+        <div class="login-register-box">
+            <mat-card>
+                <mat-card-content class="shadow">
+                    <form [formGroup]="form">
+                        <div class="text-center">
+                            <img alt="homepage" src="./assets/images/logo-dark.png">
+                            <h4 class="m-t-0">Login</h4>
+                        </div>
+    
+                        <div fxLayout="row wrap">
+                            <!-- col full-->
+                            <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                                <mat-form-field>
+                                    <input matInput placeholder="Email" [formControl]="form.controls['email']">
+                                    <mat-error *ngIf="form.controls['email'].hasError('required')">Email is required.</mat-error>
+                                    <mat-error *ngIf="form.controls['email'].hasError('email') && !form.controls['email'].hasError('required')">Email format not valid.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <!-- col full-->
+                            <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100" [ngClass]="{'animated shake': form.controls['password'].hasError('mismatch') }">
+                                <mat-form-field>
+                                    <input matInput type="password" placeholder="Password" [formControl]="form.controls['password']">
+                                    <mat-error *ngIf="form.controls['password'].hasError('required')">Password is required.</mat-error>
+                                    <mat-error *ngIf="form.controls['password'].hasError('mismatch') && !form.controls['password'].hasError('required')">Invalid email/password.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <!-- col half-->
+                            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50">
+                                <mat-checkbox color="warn">Remember me</mat-checkbox>
+                            </div>
+                            <!-- col half-->
+                            <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" class="text-right">
+                                <a  class="link" (click)="openDialog()">Reset pwd?</a>
+                            </div>
+                            <!-- col full-->
+                            <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                                <button mat-raised-button color="warn" class="btn-block btn-lg m-t-20 m-b-20" type="submit" [disabled]="!form.valid" (click)="onSubmit()">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>

@@ -1,0 +1,55 @@
+<div fxLayout="row wrap">
+
+  <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+      <mat-card>
+              <mat-card-content>
+                  <mat-card-title>Lista de Terminales</mat-card-title>
+                  <div fxLayoutAlign="end center">
+                      <button class="bg-danger" mat-raised-button (click)="openDialog(({type:'new'}))">Crear Terminal</button>
+                  </div>
+                  
+
+                  <div >
+                      <table mat-table [dataSource]="dataSource" >  
+                    
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="terminal">
+                          <th mat-header-cell *matHeaderCellDef> Terminal  test</th>
+                          <td mat-cell *matCellDef="let element"> {{element.terminal}} </td>
+                        </ng-container>
+                    
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="ciudad">
+                          <th mat-header-cell *matHeaderCellDef> Ciudad </th>
+                          <td mat-cell *matCellDef="let element"> {{element.ciudad}} </td>
+                        </ng-container>
+                    
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="estatus">
+                          <th mat-header-cell *matHeaderCellDef> Estatus </th>
+                          <td mat-cell *matCellDef="let element"> {{element.estatus}} </td>
+                        </ng-container>
+                  
+                    
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table>
+                    
+                      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                     showFirstLastButtons 
+                                     aria-label="Select page of periodic elements">
+                      </mat-paginator>
+                    </div>
+                  
+                  
+
+              </mat-card-content>        
+      </mat-card>
+      
+  </div>
+</div>
+
+
+
+
+

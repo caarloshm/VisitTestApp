@@ -1,0 +1,83 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+
+    <form fxLayout="row wrap" fxFlex="100" [formGroup]="formRegister">
+            <div fxFlex.gt-sm="100"  fxFlex="100" class=" danger">
+                    <div fxLayout="row wrap " fxLayoutAlign="space-between stretch" class="p-30">
+                            <h3 fxFlex="100" class="text-bold text-center m-b-20 m-t-0">Registro</h3>
+                            <mat-form-field fxFlex.gt-xs="45" fxFlex="100">
+                                    <input matInput placeholder="Nombres" formControlName="names"
+                                            [errorStateMatcher]="matcher">
+                                    <mat-error> This field is required </mat-error>
+                            </mat-form-field>
+                            <mat-form-field fxFlex.gt-xs="45" fxFlex="100">
+                                <input matInput placeholder="Apellidos" formControlName="lastnames"
+                                        [errorStateMatcher]="matcher">
+                                <mat-error> This field is required </mat-error>
+                            </mat-form-field>
+                            <mat-form-field fxFlex.gt-xs="100" fxFlex="100">
+                                <input matInput placeholder="Asunto" formControlName="issue"
+                                        [errorStateMatcher]="matcher">
+                                <mat-error> This field is required </mat-error>
+                            </mat-form-field>
+                            <mat-form-field fxFlex.gt-xs="45" fxFlex="100">
+                                <input matInput placeholder="Nombre quien Recibe" formControlName="nameReceive"
+                                        [errorStateMatcher]="matcher">
+                                <mat-error> This field is required </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field fxFlex.gt-xs="45" fxFlex="100">
+                                <mat-select placeholder="Seleccione tipo identificacion" formControlName="typeId">
+                                    <mat-option value="INE" >INE </mat-option>
+                                    <mat-option matOption value="Pasaporte" >Pasaporte </mat-option>
+                                </mat-select>
+                                <mat-error> This field is required </mat-error>
+                            </mat-form-field>
+                            <mat-form-field fxFlex.gt-xs="45" fxFlex="100">
+                                <mat-select placeholder="Seleccione tipo visitante" formControlName="typevisitor">
+                                    <mat-option value="Proveedor" >Proveedor </mat-option>
+                                    <mat-option matOption value="Contratista" >Contratista </mat-option>
+                                </mat-select>
+                                <mat-error> This field is required </mat-error>
+                            </mat-form-field>
+                            <mat-form-field fxFlex.gt-xs="45" fxFlex="100">
+                                <input matInput placeholder="Gafete" formControlName="gafete"
+                                        [errorStateMatcher]="matcher">
+                                <mat-error> This field is required </mat-error>
+                            </mat-form-field>
+                            <mat-form-field fxFlex.gt-xs="70" fxFlex="100">
+                                <mat-select placeholder="Seleccione Empresa" formControlName="company">
+                                    <mat-option value="Gamesa" >GAMESA </mat-option>
+                                    <mat-option matOption value="Telmex" >TELMEX </mat-option>
+                                    <mat-option matOption value="Entrevista" >ENTREVISTA </mat-option>
+                                </mat-select>
+                                <mat-error> This field is required </mat-error>
+                            </mat-form-field>
+                            <section class="example-section">
+                                <mat-checkbox class="example-margin" formControlName="laptop" [(ngModel)]="laptop">Laptop</mat-checkbox>
+                            </section>
+
+                            <mat-form-field fxFlex.gt-xs="45" fxFlex="100" *ngIf="laptop ===true">
+                                <input matInput placeholder="Marca" formControlName="model"
+                                        [errorStateMatcher]="matcher">
+                                <mat-error> This field is required </mat-error>
+                            </mat-form-field>
+                            <mat-form-field fxFlex.gt-xs="45" fxFlex="100" *ngIf="laptop ===true">
+                                <input matInput placeholder="Numero de serie" formControlName="serviceTag"
+                                        [errorStateMatcher]="matcher">
+                                <mat-error> This field is required </mat-error>
+                            </mat-form-field>
+                            
+                            <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="space-between end" class="p-t-30 m-auto">
+                                    <div fxFlex="50" fxLayoutAlign="center center">
+                                            <button *ngIf="type === 'edit' && show == true" mat-raised-button (click)="this.updateTerminal()"> Save </button>
+                                            <button [disabled]="formRegister.invalid" *ngIf="type === 'new'" mat-raised-button (click)="this.createTerminal()"> Create </button>
+                                    </div>
+                                    <div fxFlex="50"  fxLayoutAlign="center center">
+                                            <button mat-raised-button (click)="dialogRef.close()"> Close </button>
+                                    </div>
+                            </div>   
+                    </div>
+            </div>
+           
+    </form>
+</div>

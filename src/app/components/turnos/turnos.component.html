@@ -1,0 +1,51 @@
+<div fxLayout="row wrap">
+
+    <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+                <mat-card-content>
+                    <mat-card-title>Lista de Turnos</mat-card-title>
+                    <div fxLayoutAlign="end center">
+                        <button class="bg-danger" mat-raised-button (click)="openDialog(({type:'new'}))">Crear Turno</button>
+                    </div>
+                    
+  
+                    <div >
+                        <table mat-table [dataSource]="dataSource" >
+                      
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="turno">
+                            <th mat-header-cell *matHeaderCellDef> Turno </th>
+                            <td mat-cell *matCellDef="let element"> {{element.turno}} </td>
+                          </ng-container>
+                      
+                          <!-- Weight Column -->
+                          <ng-container matColumnDef="time">
+                            <th mat-header-cell *matHeaderCellDef> Horario </th>
+                            <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+                          </ng-container>
+                    
+                      
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                      
+                        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                       showFirstLastButtons 
+                                       aria-label="Select page of periodic elements">
+                        </mat-paginator>
+                      </div>
+                    
+                    
+  
+                </mat-card-content>        
+        </mat-card>
+        
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+

@@ -1,0 +1,26 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-between stretch">
+
+    <form fxLayout="row wrap" fxFlex="100" [formGroup]="formTerminal">
+            <div fxFlex.gt-sm="100"  fxFlex="100" class=" danger">
+                    <div fxLayout="row wrap " fxLayoutAlign="space-between stretch" class="p-30">
+                            <h3 fxFlex="100" class="text-bold text-center m-b-20 m-t-0">Terminal</h3>
+                            <mat-form-field fxFlex.gt-xs="100" fxFlex="100">
+                                    <input matInput placeholder="Name" formControlName="nameTerminal"
+                                            [errorStateMatcher]="matcher">
+                                    <mat-error> This field is required </mat-error>
+                            </mat-form-field>
+                            <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="space-between end" class="p-t-30 m-auto">
+                                    <div fxFlex="50" fxLayoutAlign="center center">
+                                            <button *ngIf="type === 'edit' && show == true" mat-raised-button (click)="this.updateTerminal()"> Save </button>
+                                            <button [disabled]="formTerminal.invalid" *ngIf="type === 'new'" mat-raised-button (click)="this.createTerminal()"> Create </button>
+                                    </div>
+                                    <div fxFlex="50"  fxLayoutAlign="center center">
+                                            <button mat-raised-button (click)="dialogRef.close()"> Close </button>
+                                    </div>
+                            </div>
+                            
+                    </div>
+            </div>
+           
+    </form>
+</div>
